@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> "Craving Foods"</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <h1>Welcome to Craving Foods</h1>
+            <div id="user-details-section">
+                <form id="user-details-form">
+                    <label for="userName">Enter Your Name:</label>
+                    <input type="text" id="userName" placeholder="Your Name" required>
+                    <br>
+                    <label for="mobileNumber">Enter Your Mobile Number:</label>
+                    <input type="number" id="mobileNumber" placeholder="Your Mobile Number" required>
+                    <br>
+                    <label for="address">Enter Delivery Address:</label>
+                    <textarea id="address" placeholder="Your Delivery Address" required></textarea>
+                    <br>
+                    <button type="submit">Start Ordering</button>
+                </form>
+            </div>
+
+            <div id="menu-section" class="hidden">
+                <h2>Select Restaurant or View All Menu</h2>
+                <button onclick="showMenuByRestaurant(1)">Dosa Palace</button>
+                <button onclick="showMenuByRestaurant(2)">Alpha</button>
+                <button onclick="showMenuByRestaurant(3)">Only Vegan's</button>
+                <button onclick="showAllMenu()">View All Menu</button>
+                <div id="menu-display"></div>
+            </div>
+
+            <div id="order-section" class="hidden">
+                <h2>Your Order</h2>
+                <ul id="order-summary"></ul>
+                <button onclick="showBill()">View Bill</button>
+            </div>
+
+            <div id="bill-section" class="hidden">
+                <h2>Detailed Bill</h2>
+                <div id="bill-display"></div>
+                <button onclick="showFeedbackForm()">Provide Feedback</button>
+            </div>
+
+            <div id="feedback-section" class="hidden">
+                <h2>Feedback</h2>
+                <form id="feedback-form">
+                    <label for="foodRating">Rate the Food (1-5):</label>
+                    <input type="number" id="foodRating" min="1" max="5" required>
+                    <br>
+                    <label for="restaurantRating">Rate the Restaurant (1-5):</label>
+                    <input type="number" id="restaurantRating" min="1" max="5" required>
+                    <br>
+                    <label for="additionalFeedback">Additional Feedback:</label>
+                    <textarea id="additionalFeedback" placeholder="Your feedback"></textarea>
+                    <br>
+                    <button type="submit">Submit Feedback</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
