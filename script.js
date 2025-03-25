@@ -1,4 +1,3 @@
-// Sample data for restaurants and menus
 const restaurants = [
     { id: 1, name: "Dosa Palace", menu: [
         { id: 1, name: "Plain Dosa", price: 30 },
@@ -18,7 +17,6 @@ const restaurants = [
 let order = [];
 let userDetails = {};
 
-// Function to handle user details form submission
 document.getElementById("user-details-form").addEventListener("submit", function(e) {
     e.preventDefault();
     userDetails.name = document.getElementById("userName").value;
@@ -29,7 +27,6 @@ document.getElementById("user-details-form").addEventListener("submit", function
     document.getElementById("menu-section").classList.remove("hidden");
 });
 
-// Show menu by restaurant
 function showMenuByRestaurant(restaurantId) {
     const restaurant = restaurants.find(r => r.id === restaurantId);
     const menuDisplay = document.getElementById("menu-display");
@@ -42,7 +39,6 @@ function showMenuByRestaurant(restaurantId) {
     menuDisplay.innerHTML += `<button class="proceed-btn" onclick="goToOrder()">Proceed to Order</button>`;
 }
 
-// Show combined menu
 function showAllMenu() {
     const menuDisplay = document.getElementById("menu-display");
     menuDisplay.innerHTML = "<h3>All Restaurants Menu</h3>";
@@ -57,13 +53,11 @@ function showAllMenu() {
     menuDisplay.innerHTML += `<button class="proceed-btn" onclick="goToOrder()">Proceed to Order</button>`;
 }
 
-// Add item to order
 function addToOrder(id, name, price) {
     order.push({ id, name, price });
     alert(`${name} has been added to your order!`);
 }
 
-// Navigate to order summary
 function goToOrder() {
     if (order.length === 0) {
         alert("Your order is empty. Please add items before proceeding.");
@@ -78,7 +72,6 @@ function goToOrder() {
     orderSummary.innerHTML += `<button class="proceed-btn" onclick="showBill()">Place Order & View Bill</button>`;
 }
 
-// Show bill
 function showBill() {
     const billSection = document.getElementById("bill-display");
     const total = order.reduce((sum, item) => sum + item.price, 0);
@@ -102,13 +95,11 @@ function showBill() {
     document.getElementById("bill-section").classList.remove("hidden");
 }
 
-// Show feedback form
 function showFeedbackForm() {
     document.getElementById("bill-section").classList.add("hidden");
     document.getElementById("feedback-section").classList.remove("hidden");
 }
 
-// Handle feedback form submission
 document.getElementById("feedback-form").addEventListener("submit", function(e) {
     e.preventDefault();
     const foodRating = document.getElementById("foodRating").value;
@@ -116,5 +107,5 @@ document.getElementById("feedback-form").addEventListener("submit", function(e) 
     const additionalFeedback = document.getElementById("additionalFeedback").value;
 
     alert(`Thank you for your feedback!\nFood Rating: ${foodRating}/5\nRestaurant Rating: ${restaurantRating}/5\nFeedback: ${additionalFeedback}`);
-    location.reload(); // Reload the page for a new session
+    location.reload(); 
 });
